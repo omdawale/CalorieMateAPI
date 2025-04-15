@@ -2,8 +2,11 @@ from fastapi import FastAPI, Depends, HTTPException
 import services, model, schemas
 from db import get_db,engine
 from sqlalchemy.orm import Session
+from mangum import Mangum
 
 app = FastAPI()
+
+handler = Mangum(app)
 
 @app.get("/food_calories/all", response_model=list[schemas.Calorie])
 async def get_all_foods_calories(db: Session = Depends(get_db)):
