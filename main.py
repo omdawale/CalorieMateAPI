@@ -6,7 +6,7 @@ from mangum import Mangum
 
 app = FastAPI()
 
-handler = Mangum(app)
+#handler = Mangum(app)
 
 @app.get("/food_calories/all", response_model=list[schemas.Calorie])
 async def get_all_foods_calories(db: Session = Depends(get_db)):
