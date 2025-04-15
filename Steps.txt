@@ -1,0 +1,3 @@
+1. Install all required packages.
+2. Creating db.py file and intialize a db connection to our API.
+3. Define a tables for that make model.py and build a structre of table like what are the columns should we consider in table.
