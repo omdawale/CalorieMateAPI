@@ -27,6 +27,7 @@ def create_table():
     Base.metadata.create_all(bind=engine)
 
 
+#psql postgresql://postgres:IoteEBOeQkAtOPqKyAWJodnDDdgvkood@interchange.proxy.rlwy.net:25390/railway< caloriemates_dump.sql
 
 
 
