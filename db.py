@@ -3,11 +3,14 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
 
-load_dotenv()  # Loads .env in local dev
+load_dotenv()  
 
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL,
+    connect_args={"sslmode": "require"}  # this ensures secure Railway connection
+)
 
 Sessionlocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -22,3 +25,9 @@ def get_db():
 
 def create_table():
     Base.metadata.create_all(bind=engine)
+
+
+
+
+
+#postgresql://postgres:1234@localhost:5432/caloriemates
